@@ -7,15 +7,11 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import iammert.com.dagger_android_injection.ui.detail.DetailActivityComponent;
-import iammert.com.dagger_android_injection.ui.main.MainActivityComponent;
 
 /**
  * Created by mertsimsek on 25/05/2017.
  */
-@Module(subcomponents = {
-        MainActivityComponent.class,
-        DetailActivityComponent.class})
+@Module
 public class AppModule {
 
     @Provides

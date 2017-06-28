@@ -1,14 +1,9 @@
 package iammert.com.dagger_android_injection.ui.detail;
 
-import android.support.v4.app.Fragment;
-
-import dagger.Binds;
 import dagger.Module;
-import dagger.android.AndroidInjector;
-import dagger.android.support.FragmentKey;
-import dagger.multibindings.IntoMap;
+import dagger.android.ContributesAndroidInjector;
 import iammert.com.dagger_android_injection.ui.detail.fragment.DetailFragment;
-import iammert.com.dagger_android_injection.ui.detail.fragment.DetailFragmentComponent;
+import iammert.com.dagger_android_injection.ui.detail.fragment.DetailFragmentModule;
 
 /**
  * Created by mertsimsek on 02/06/2017.
@@ -16,8 +11,6 @@ import iammert.com.dagger_android_injection.ui.detail.fragment.DetailFragmentCom
 @Module
 public abstract class DetailFragmentProvider {
 
-    @Binds
-    @IntoMap
-    @FragmentKey(DetailFragment.class)
-    abstract AndroidInjector.Factory<? extends Fragment> provideDetailFragmentFactory(DetailFragmentComponent.Builder builder);
+    @ContributesAndroidInjector(modules = DetailFragmentModule.class)
+    abstract DetailFragment provideDetailFragmentFactory();
 }
