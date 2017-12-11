@@ -3,7 +3,6 @@ package iammert.com.dagger_android_injection.ui.detail.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,13 +10,13 @@ import android.view.ViewGroup;
 
 import javax.inject.Inject;
 
-import dagger.android.support.AndroidSupportInjection;
+import dagger.android.support.DaggerFragment;
 
 /**
  * Created by mertsimsek on 02/06/2017.
  */
 
-public class DetailFragment extends Fragment implements DetailFragmentView {
+public class DetailFragment extends DaggerFragment implements DetailFragmentView {
 
     @Inject
     DetailFragmentPresenter detailFragmentPresenter;
@@ -37,7 +36,6 @@ public class DetailFragment extends Fragment implements DetailFragmentView {
 
     @Override
     public void onAttach(Context context) {
-        AndroidSupportInjection.inject(this);
         super.onAttach(context);
     }
 

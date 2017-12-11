@@ -1,6 +1,5 @@
 package iammert.com.dagger_android_injection.ui.detail.fragment;
 
-import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
 
