@@ -1,26 +1,19 @@
 package iammert.com.dagger_android_injection.di;
 
-import android.app.Application;
-
-import dagger.BindsInstance;
 import dagger.Component;
-import dagger.android.AndroidInjectionModule;
+import dagger.android.AndroidInjector;
+import dagger.android.support.AndroidSupportInjectionModule;
 import iammert.com.dagger_android_injection.AndroidSampleApp;
 
 /**
  * Created by mertsimsek on 25/05/2017.
  */
 @Component(modules = {
-        AndroidInjectionModule.class,
+        AndroidSupportInjectionModule.class,
         AppModule.class,
         ActivityBuilder.class})
-public interface AppComponent {
-
+public interface AppComponent extends AndroidInjector<AndroidSampleApp> {
     @Component.Builder
-    interface Builder {
-        @BindsInstance Builder application(Application application);
-        AppComponent build();
+    abstract class Builder extends AndroidInjector.Builder<AndroidSampleApp> {
     }
-
-    void inject(AndroidSampleApp app);
 }
